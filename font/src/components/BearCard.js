@@ -1,6 +1,7 @@
 import React from 'react';
 import './BearCard.css';
 import axios from 'axios'
+import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { bearActions } from '../redux/store'
 import { bindActionCreators } from 'redux';
@@ -22,8 +23,8 @@ const BearCard = props => {
                 <p className='bearcard-name'>{props.name}</p>
             </div>
             <div className='bearcard-actions'>
-                <div onClick={updateBear}>Update</div>
-                <div onClick={deleteBear}>Delete</div>
+                <Button onClick={updateBear}>Update</Button>
+                <Button style={{ marginLeft: '0.4rem' }} onClick={deleteBear}>Delete</Button>
             </div>
         </div>
 

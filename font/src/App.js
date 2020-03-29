@@ -7,7 +7,6 @@ import { AuthActions } from './redux/store'
 import { bindActionCreators } from 'redux';
 import LoginForm from './components/LoginForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
 axios.defaults.withCredentials = true
 export default () => {
   const [loading, setLoading] = useState(false);
@@ -29,10 +28,9 @@ export default () => {
   }
   return (
     <div>
-      <h2>Bears</h2>
+      <h2>BEAR</h2>
       <BearList />
       <InputForm />
-      <Button variant="outline-danger" onClick={() => actions.logout()}>Logout</Button>
     </div>
   )
 }

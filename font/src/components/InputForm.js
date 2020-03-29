@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios'
+import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { bearActions } from '../redux/store'
 import { formActions } from '../redux/store'
 import { bindActionCreators } from 'redux';
-import { Button } from 'react-bootstrap';
 const InputForm = props => {
 
     const actionsBear = bindActionCreators(bearActions, useDispatch());
@@ -13,46 +13,35 @@ const InputForm = props => {
     const bears = useSelector(state => state.bear)
     const addBear = async () => {
         await axios.post(`http://localhost/api/bears`, form)
-        // dispatch({
-        //     type: 'ADD_BEAR', bears: {
-        //         id: bears.length > 0 ? bears[bears.length - 1].id + 1 : 0,
-        //         ...form
-        //     }
-        // })
         actionsBear.addBear(bears, form)
     }
-    //const { data, onChange } = props;
     return (
-        <div className='form-container'>
-            <h2>Add bear</h2>
-            <table>
+        
+        <div className='form-container' style={{ marginTop: '1rem' }} >
+            <h2>ADD BEAR</h2>
                 <tbody>
                     <tr>
                         <td>Name</td>
                         <td>
-                            <input className='inpt' type="text" onChange={(e) => actionsForm.changeName(e.target.value)} />
+                            <input className='input' type="text" onChange={(e) => actionsForm.changeName(e.target.value)} />
                         </td>
                     </tr>
                     <tr>
                         <td>Weight</td>
                         <td>
-                            <input className='inpt' type="number" onChange={(e) => actionsForm.changeWeight(e.target.value)} />
+                            <input className='input' type="number" onChange={(e) => actionsForm.changeWeight(e.target.value)} />
                         </td>
                     </tr>
                     <tr>
                         <td>Image</td>
                         <td>
-                            <input className='inpt' type="text" onChange={(e) => actionsForm.changeImg(e.target.value)} /> <br />
+                            <input className='input' type="text" onChange={(e) => actionsForm.changeImg(e.target.value)} /> <br />
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>
-                            <Button onClick={addBear}>CREATE</Button>
-                        </td>
+                            <Button  style={{ marginLeft: '0.3rem' }} onClick={addBear}>CREATE</Button>  
                     </tr>
                 </tbody>
-            </table>
         </div>
     )
 }

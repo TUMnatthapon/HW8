@@ -25,21 +25,17 @@ const LoginForm = (props) => {
     return (
         <center>
             <div>
-                <div>
+                <h2>Facebook Login</h2>
+                <Button href={facebookLink} >Login</Button>
+                <div style={{ marginTop: '2rem' }}>
+                    <h2>PSU Login</h2>
+                    <label>Username</label>
+                    <input style={{ marginLeft: '1rem', width: '12rem' }} type="text" placeholder="Enter Username" name="username" onChange={(e) => setUsername(e.target.value)} />
                     <div>
-                        <h2>Facebook Login</h2>
-                        <Button href={facebookLink} >Login</Button>
-                        <div style={{ marginTop: '2rem' }}>
-                            <h2>PSU Login</h2>
-                            <label>Username</label>
-                            <input style={{ marginLeft: '1rem', width: '12rem' }} type="text" placeholder="Enter Username" name="username" onChange={(e) => setUsername(e.target.value)} />
-                            <div>
-                                <label>Password</label>
-                                <input style={{ marginLeft: '1.3rem', width: '12rem' }} type="password" placeholder="Enter Password" name="password" onChange={(e) => setPassword(e.target.value)} />
-                                <div>
-                                    <Button onClick={LoginPSU}>Login</Button>
-                                </div>
-                            </div>
+                        <label>Password</label>
+                        <input style={{ marginLeft: '1.3rem', width: '12rem' }} type="password" placeholder="Enter Password" name="password" onChange={(e) => setPassword(e.target.value)} />
+                        <div>
+                            <Button onClick={LoginPSU}>Login</Button>
                         </div>
                     </div>
                 </div>

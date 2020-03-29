@@ -24,9 +24,7 @@ let bears = [
 ];
 
 router.route('/bears')
-    // get all bears
     .get((req, res) => res.json(bears))
-    // insert a new bear
     .post((req, res) => {
         var bear = {};
         bear.id = bears.length > 0 ? bears[bears.length - 1].id + 1 : 0;
@@ -58,7 +56,6 @@ router.route('/bears/:bear_id')
     })
 
 router.route('/auth').get(authRoutes.index);
-router.route('/auth/logout').get(authRoutes.logout);
 router.route('/auth/facebook').get(fbRoutes.loginUrl);
 router.route('/auth/facebook/login/callback').get(fbRoutes.loginCallback);
 router.route('/auth/psu').post(psuRoutes.login);

@@ -1,7 +1,6 @@
 .bearcard-container {
     width: 160px;
     border-radius: 4px;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,.15);
     overflow: hidden;
 }
 
@@ -24,7 +23,7 @@
     text-align: center;
     padding: 4px;
     margin: 0;
-    background-color: rgba(0,0,0,.60);
+    background-color: rgba(129, 125, 125, 0.6);
     color: white;
 }
 
@@ -37,8 +36,8 @@
     display: inline;
     padding: 4px;
     font-weight: bold;
-    background-color: rgba(255,255,255,.60);
-    color: rgb(252, 164, 0);
+    background-color: rgba(145, 141, 141, 0.6);
+    color: rgb(255, 255, 255);
 }
 
 .bearcard-actions {

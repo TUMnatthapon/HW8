@@ -4,7 +4,3 @@ exports.index = function (req, res) {
         psuInfo: req.session.psuInfo ? JSON.parse(req.session.psuInfo) : null
     })
 }
-exports.logout = function (req, res) {
-    req.session.destroy()
-    res.send('LOGOUT')
-}

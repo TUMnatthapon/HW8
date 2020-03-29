@@ -1,4 +1,3 @@
-
 var FB = require('../fb');
 var request = require('request');
 
@@ -23,13 +22,11 @@ exports.loginCallback = function (req, res, next) {
         accessToken = '',
         expires = 0;
     if (req.query.error) {
-        // user disallowed the app
-        return res.send('Error occurred');
+        return res.send('Error');
     } else if (!code) {
         return res.redirect('http://localhost:3000');
     }
 
-    // exchange code for access token
     FB.api('oauth/access_token', {
         client_id: FB.options('appId'),
         client_secret: FB.options('appSecret'),
@@ -37,8 +34,8 @@ exports.loginCallback = function (req, res, next) {
         code: code
     }, function (result) {
         if (!result || result.error) {
-            console.log(!res ? 'error occurred' : res.error);
-            return next(result); // todo: handle error
+            console.log(!res ? 'Error' : res.error);
+            return next(result); 
         }
 
         accessToken = result.access_token;
@@ -49,13 +46,6 @@ exports.loginCallback = function (req, res, next) {
         req.session.expires = expires;
         res.redirect('http://localhost:3000');
     });
-};
-
-exports.logout = function (req, res) {
-    // req.session = null; 
-    req.session.destroy() // clear session
-    console.log('clear session: ', req.session)
-    res.redirect('/');
 };
 
 exports.feed = function (req, res) {

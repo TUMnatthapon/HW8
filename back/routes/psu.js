@@ -15,7 +15,6 @@ module.exports.login = function (req, res) {
             user.username = req.body.username
             user.password = req.body.password
             client.GetStaffDetails(user, function (err, response) {
-                // client.GetStudentDetails(args, function(err, response) {
                 if (err) console.error(err);
                 else {
                     const [stdId, firstname, lastname, id, type] = response.GetStaffDetailsResult.string
